@@ -1,35 +1,17 @@
-# INF99X: Sample Course
+﻿# DP-100-Implementing-an-Azure-Data-Science-Solution
 
-- **[Download Latest Student Handbook and AllFiles Content](../../releases/latest)**
-- **Are you a MCT?** - Have a look at our [GitHub User Guide for MCTs](https://microsoftlearning.github.io/MCT-User-Guide/)
-- **Need to manually build the lab instructions?** - Instructions are available in the [MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) repository
+ 랩은 데이터 분석부터 시작하여 Azure Machine Learning 서비스에 학습한 모델을 배포하는 것으로 끝나는 일련의 작업으로 구성됩니다. 
 
-## What are we doing?
+다음은 각 모듈의 랩 목표에 대한 요약입니다.
 
-- To support this course, we will need to make frequent updates to the course content to keep it current with the Azure services used in the course.  We are publishing the lab instructions and lab files on GitHub to allow for open contributions between the course authors and MCTs to keep the content current with changes in the Azure platform.
+## 랩 1 - scikit-learn을 사용하여 Python에서 분류 모델을 학습
 
-- We hope that this brings a sense of collaboration to the labs like we've never had before - when Azure changes and you find it first during a live delivery, go ahead and make an enhancement right in the lab source.  Help your fellow MCTs.
+이 랩에서 학생들은 Azure Notebook에서 Python을 사용한 모델 분류를 학습합니다.  이 모델은 고객이 구매할 가능성이 가장 높은 자전거 유형을 예측합니다. 일부 탐색적 데이터 분석 및 피쳐 엔지니어링이 필요합니다. 
 
-## How should I use these files relative to the released MOC files?
+## 랩 2 - Azure Machine Learning 서비스를 사용하여 모델 학습 및 배포
 
-- The instructor handbook and PowerPoints are still going to be your primary source for teaching the course content.
+이 랩에서 학생들은 랩 1에서 개발한 모델과 동일한 모델을 학습, 등록, 배포 및 테스트합니다.  Azure Machine Learning 서비스에서  Python SDK를 사용하는 데 중점을 둡니까?
 
-- These files on GitHub are designed to be used in conjunction with the student handbook, but are in GitHub as a central repository so MCTs and course authors can have a shared source for the latest lab files.
+## 랩 3 - AutoML 및 Hyperdrive를 사용하여 머신 자동화 
 
-- It will be recommended that for every delivery, trainers check GitHub for any changes that may have been made to support the latest Azure services, and get the latest files for their delivery.
-
-## What about changes to the student handbook?
-
-- We will review the student handbook on a quarterly basis and update through the normal MOC release channels as needed.
-
-## How do I contribute?
-
-- Any MCT can submit a pull request to the code or content in the GitHub repro, Microsoft and the course author will triage and include content and lab code changes as needed.
-
-- You can submit bugs, changes, improvement and ideas.  Find a new Azure feature before we have?  Submit a new demo!
-
-## Notes
-
-### Classroom Materials
-
-It is strongly recommended that MCTs and Partners access these materials and in turn, provide them separately to students.  Pointing students directly to GitHub to access Lab steps as part of an ongoing class will require them to access yet another UI as part of the course, contributing to a confusing experience for the student. An explanation to the student regarding why they are receiving separate Lab instructions can highlight the nature of an always-changing cloud-based interface and platform. Microsoft Learning support for accessing files on GitHub and support for navigation of the GitHub site is limited to MCTs teaching this course only.
+이 랩에서 학생들은 AutoML 및 HyperDrive를 사용하여 가장 성능이 우수한 기계 학습 분류 모델을 선택하고 최적의 하이 퍼매개 변수 값을 결정합니다. 목표는 수동으로 학습한 모델보다 더 나은 성능을 발휘하는 모델을 얻을 수 있는지 확인하는 것입니다.
