@@ -1,4 +1,4 @@
-﻿# DP-100-Implementing-an-Azure-Data-Science-Solution
+﻿# DP-100 Azure에서 데이터 과학 솔루션 설계 및 구현
 
  랩은 데이터 분석부터 시작하여 Azure Machine Learning 서비스에 학습한 모델을 배포하는 것으로 끝나는 일련의 작업으로 구성됩니다. 
 
