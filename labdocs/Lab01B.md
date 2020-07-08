@@ -1,93 +1,88 @@
-ï»¿# ëž© 1B: Azure Machine Learning ë„êµ¬ ì‚¬ìš©
+# ·¦ 1B: Azure Machine Learning µµ±¸ »ç¿ë
 
-ì´ ëž©ì—ì„œëŠ” Azure Machine Learning ìž‘ì—… ì˜ì—­ì„ ì‚¬ìš©í•˜ëŠ” ë° í•„ìš”í•œ ì—¬ëŸ¬ ê°€ì§€ ë‹¤ì–‘í•œ ë„êµ¬ë¥¼ ì‚´íŽ´ë´…ë‹ˆë‹¤.
+ÀÌ ·¦¿¡¼­´Â Azure Machine Learning ÀÛ¾÷ ¿µ¿ªÀ» »ç¿ëÇÏ´Â µ¥ ÇÊ¿äÇÑ ¿©·¯ °¡Áö ´Ù¾çÇÑ µµ±¸¸¦ »ìÆìº¾´Ï´Ù.
 
-## ì‹œìž‘í•˜ê¸° ì „ì—
+## ½ÃÀÛÇÏ±â Àü¿¡
 
-ì´ ëž©ì„ ì‹œìž‘í•˜ê¸° ì „ì— [ì´ì „ ëž©](Lab01A.md)ì˜ ì§€ì¹¨ì— ë”°ë¼ Azure Machine Learning ìž‘ì—… ì˜ì—­ì„ ë§Œë“¤ì–´ì•¼ í•©ë‹ˆë‹¤.
+ÀÌ ·¦À» ½ÃÀÛÇÏ±â Àü¿¡ [ÀÌÀü ·¦](Lab01A.md)ÀÇ ÁöÄ§¿¡ µû¶ó Azure Machine Learning ÀÛ¾÷ ¿µ¿ªÀ» ¸¸µé¾î¾ß ÇÕ´Ï´Ù.
 
-## ìž‘ì—… 1: ì»´í“¨íŒ… ì¸ìŠ¤í„´ìŠ¤ì—ì„œ Azure ML SDK ì‚¬ìš©
+## ÀÛ¾÷ 1: ÄÄÇ»ÆÃ ÀÎ½ºÅÏ½º¿¡¼­ Azure ML SDK »ç¿ë
 
-í™˜ê²½ ì„¤ì •ì„ ìœ„í•œ ëŒ€ë‹¤ìˆ˜ ìžì‚° ê´€ë¦¬ ìž‘ì—…ì€ *Studio* ì¸í„°íŽ˜ì´ìŠ¤ì—ì„œ ìˆ˜í–‰í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. í•˜ì§€ë§Œ ì´ëŸ¬í•œ ìž‘ì—…ì„ ë” ì‰½ê²Œ ë°˜ë³µí•˜ê³  ìžë™í™”í•˜ê¸° ìœ„í•´ êµ¬ì„± ìž‘ì—…ì„ ìŠ¤í¬ë¦½íŠ¸ë¡œ ìž‘ì„±í•  ìˆ˜ë„ ìžˆìŠµë‹ˆë‹¤.
+È¯°æ ¼³Á¤À» À§ÇÑ ´ë´Ù¼ö ÀÚ»ê °ü¸® ÀÛ¾÷Àº *Studio* ÀÎÅÍÆäÀÌ½º¿¡¼­ ¼öÇàÇÒ ¼ö ÀÖ½À´Ï´Ù. ÇÏÁö¸¸ ÀÌ·¯ÇÑ ÀÛ¾÷À» ´õ ½±°Ô ¹Ýº¹ÇÏ°í ÀÚµ¿È­ÇÏ±â À§ÇØ ±¸¼º ÀÛ¾÷À» ½ºÅ©¸³Æ®·Î ÀÛ¼ºÇÒ ¼öµµ ÀÖ½À´Ï´Ù.
 
-1. [Azure Machine Learning Studio](https://ml.azure.com)ì˜ ìž‘ì—… ì˜ì—­ **ì»´í“¨íŒ…** íŽ˜ì´ì§€ì—ì„œ **ì»´í“¨íŒ… ì¸ìŠ¤í„´ìŠ¤** íƒ­ì„ í‘œì‹œí•˜ê³  í•„ìš”í•œ ê²½ìš° ì´ì „ ëž©ì—ì„œ ë§Œë“  ì»´í“¨íŒ… ì¸ìŠ¤í„´ìŠ¤ê°€ ì‹œìž‘ë  ë•Œê¹Œì§€ **ìƒˆë¡œ ê³ ì¹¨**ì„ ì£¼ê¸°ì ìœ¼ë¡œ í´ë¦­í•©ë‹ˆë‹¤.
-2. ì¸ì¦ëœ ì„¸ì…˜ì´ ë§Œë£Œë˜ì§€ ì•Šë„ë¡ ë¸Œë¼ìš°ì €ì—ì„œ Azure Machine Learning Studio ì›¹ íŽ˜ì´ì§€ë¥¼ ìƒˆë¡œ ê³ ì¹©ë‹ˆë‹¤. ê·¸ëŸ° ë‹¤ìŒ ì»´í“¨íŒ… ì¸ìŠ¤í„´ìŠ¤ì˜ **Jupyter** ë§í¬ë¥¼ í´ë¦­í•˜ì—¬ ìƒˆ íƒ­ì—ì„œ Jupyter Notebookì„ ì—½ë‹ˆë‹¤. ë©”ì‹œì§€ê°€ í‘œì‹œë˜ë©´ Azure êµ¬ë…ê³¼ ì—°ê²°ëœ Microsoft ê³„ì •ì„ ì‚¬ìš©í•˜ì—¬ ë¡œê·¸ì¸í•©ë‹ˆë‹¤.
-3. Notebook í™˜ê²½ì—ì„œ ìƒˆ **í„°ë¯¸ë„**ì„ ë§Œë“­ë‹ˆë‹¤. ê·¸ëŸ¬ë©´ ëª…ë ¹ ì…¸ì´ í¬í•¨ëœ ìƒˆ íƒ­ì´ ì—´ë¦½ë‹ˆë‹¤.
-4. ì»´í“¨íŒ… ì¸ìŠ¤í„´ìŠ¤ ì´ë¯¸ì§€ì—ëŠ” Azure Machine Learning SDKê°€ ì´ë¯¸ ì„¤ì¹˜ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. ê·¸ëŸ¬ë‚˜ ì´ ê³¼ì •ì— í•„ìš”í•œ ì„ íƒì  íŒ¨í‚¤ì§€ê°€ í¬í•¨ë˜ì–´ ìžˆëŠ” ìµœì‹  ë²„ì „ì„ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ ì¢‹ìœ¼ë¯€ë¡œ, ë‹¤ìŒ ëª…ë ¹ì„ ìž…ë ¥í•˜ì—¬ SDK íŒ¨í‚¤ì§€ë¥¼ ì—…ë°ì´íŠ¸í•©ë‹ˆë‹¤.
+1. [Azure Machine Learning Studio](https://ml.azure.com)ÀÇ ÀÛ¾÷ ¿µ¿ª **ÄÄÇ»ÆÃ** ÆäÀÌÁö¿¡¼­ **ÄÄÇ»ÆÃ ÀÎ½ºÅÏ½º** ÅÇÀ» Ç¥½ÃÇÏ°í ÇÊ¿äÇÑ °æ¿ì ÀÌÀü ·¦¿¡¼­ ¸¸µç ÄÄÇ»ÆÃ ÀÎ½ºÅÏ½º°¡ ½ÃÀÛµÉ ¶§±îÁö **»õ·Î °íÄ§**À» ÁÖ±âÀûÀ¸·Î Å¬¸¯ÇÕ´Ï´Ù.
+2. ÀÎÁõµÈ ¼¼¼ÇÀÌ ¸¸·áµÇÁö ¾Êµµ·Ï ºê¶ó¿ìÀú¿¡¼­ Azure Machine Learning Studio À¥ ÆäÀÌÁö¸¦ »õ·Î °íÄ¨´Ï´Ù. ±×·± ´ÙÀ½ ÄÄÇ»ÆÃ ÀÎ½ºÅÏ½ºÀÇ **Jupyter** ¸µÅ©¸¦ Å¬¸¯ÇÏ¿© »õ ÅÇ¿¡¼­ Jupyter NotebookÀ» ¿±´Ï´Ù. ¸Þ½ÃÁö°¡ Ç¥½ÃµÇ¸é Azure ±¸µ¶°ú ¿¬°áµÈ Microsoft °èÁ¤À» »ç¿ëÇÏ¿© ·Î±×ÀÎÇÕ´Ï´Ù.
+3. Notebook È¯°æ¿¡¼­ »õ **ÅÍ¹Ì³Î**À» ¸¸µì´Ï´Ù. ±×·¯¸é ¸í·É ¼ÐÀÌ Æ÷ÇÔµÈ »õ ÅÇÀÌ ¿­¸³´Ï´Ù.
+4. ÄÄÇ»ÆÃ ÀÎ½ºÅÏ½º ÀÌ¹ÌÁö¿¡´Â Azure Machine Learning SDK°¡ ÀÌ¹Ì ¼³Ä¡µÇ¾î ÀÖ½À´Ï´Ù. ±×·¯³ª ÀÌ °úÁ¤¿¡ ÇÊ¿äÇÑ ¼±ÅÃÀû ÆÐÅ°Áö°¡ Æ÷ÇÔµÇ¾î ÀÖ´Â ÃÖ½Å ¹öÀüÀ» »ç¿ëÇÏ´Â °ÍÀÌ ÁÁÀ¸¹Ç·Î, ´ÙÀ½ ¸í·ÉÀ» ÀÔ·ÂÇÏ¿© SDK ÆÐÅ°Áö¸¦ ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
 
     ```bash
     pip install --upgrade azureml-sdk[notebooks,automl,explain]
     ```
 
-    > **ì¶”ê°€ ì •ë³´**: Azure ML SDK ë° ì„ íƒì  êµ¬ì„± ìš”ì†Œ ì„¤ì¹˜ì— ëŒ€í•œ ìžì„¸í•œ ë‚´ìš©ì€ [Azure ML SDK ì„¤ëª…ì„œ](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)ë¥¼ ì°¸ì¡°í•˜ì„¸ìš”.
+    ÆÐÅ°Áö Á¾¼Ó¼ºÀÌ ¼³Ä¡ Áß ¸î °¡Áö °æ°í°¡ Ç¥½ÃµÉ ¼ö ÀÖ½À´Ï´Ù. ÀÌ·¯ÇÑ ¸Þ½ÃÁö´Â ¹«½ÃÇØµµ µË´Ï´Ù.
 
-5. ê·¸ëŸ° í›„ì— ë‹¤ìŒ ëª…ë ¹ì„ ì‹¤í–‰í•˜ì—¬ í˜„ìž¬ ë””ë ‰í„°ë¦¬ë¥¼ **Users** ë””ë ‰í„°ë¦¬ë¡œ ë³€ê²½í•˜ê³  ì´ ê³¼ì •ì˜ ëž©ì—ì„œ ì‚¬ìš©í•  Notebookì„ ê²€ìƒ‰í•©ë‹ˆë‹¤.
+    > **Ãß°¡ Á¤º¸**: Azure ML SDK ¹× ¼±ÅÃÀû ±¸¼º ¿ä¼Ò ¼³Ä¡¿¡ ´ëÇÑ ÀÚ¼¼ÇÑ ³»¿ëÀº [Azure ML SDK ¼³¸í¼­](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)¸¦ ÂüÁ¶ÇÏ¼¼¿ä.
+
+5. ±×·± ÈÄ¿¡ ´ÙÀ½ ¸í·ÉÀ» ½ÇÇàÇÏ¿© ÇöÀç µð·ºÅÍ¸®¸¦ **Users** µð·ºÅÍ¸®·Î º¯°æÇÏ°í ÀÌ °úÁ¤ÀÇ ·¦¿¡¼­ »ç¿ëÇÒ NotebookÀ» °Ë»öÇÕ´Ï´Ù.
 
     ```bash
     cd Users
     git clone https://github.com/MicrosoftLearning/DP100
     ```
 
-6. ëª…ë ¹ì´ ì™„ë£Œë˜ë©´ í„°ë¯¸ë„ íƒ­ì„ ë‹«ê³  Jupyter Notebook íŒŒì¼ íƒìƒ‰ê¸°ì—ì„œ í™ˆ íŽ˜ì´ì§€ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤. ê·¸ëŸ° ë‹¤ìŒ **Users** í´ë”ë¥¼ ì—½ë‹ˆë‹¤. ì´ í´ë”ì—ëŠ” ì´ ëž©ì˜ ë‚˜ë¨¸ì§€ ë¶€ë¶„ì—ì„œ ì‚¬ìš©í•  íŒŒì¼ì´ í¬í•¨ëœ **DP100** í´ë”ê°€ ìžˆì–´ì•¼ í•©ë‹ˆë‹¤.
-7. **Users/DP100** í´ë”ì—ì„œ **01B - Intro to the Azure ML SDK.ipynb** Notebookì„ ì—½ë‹ˆë‹¤. ê·¸ëŸ° ë‹¤ìŒ ê° ì½”ë“œ ì…€ì„ ì°¨ë¡€ë¡œ ì‹¤í–‰í•˜ì—¬ Notebookì˜ ë©”ëª¨ë¥¼ ì½ìŠµë‹ˆë‹¤.
-8. Notebookì—ì„œ ì½”ë“œ ì‹¤í–‰ì´ ì™„ë£Œë˜ë©´ **íŒŒì¼** ë©”ë‰´ì—ì„œ **ë‹«ê¸° ë° ì¤‘ì§€**ë¥¼ í´ë¦­í•˜ì—¬ Notebookì„ ë‹«ê³  Python ì»¤ë„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤. ê·¸ëŸ° í›„ì— ëª¨ë“  Jupyter ë¸Œë¼ìš°ì € íƒ­ì„ ë‹«ìŠµë‹ˆë‹¤.
-9. Azure Machine Learning Studioì˜ **ì»´í“¨íŒ…** íŽ˜ì´ì§€ì—ì„œ ì»´í“¨íŒ… ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì„ íƒí•œ ë‹¤ìŒ **ì¤‘ì§€**ë¥¼ í´ë¦­í•˜ì—¬ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤.
+6. ¸í·ÉÀÌ ¿Ï·áµÇ¸é ÅÍ¹Ì³Î ÅÇÀ» ´Ý°í Jupyter Notebook ÆÄÀÏ Å½»ö±â¿¡¼­ È¨ ÆäÀÌÁö¸¦ Ç¥½ÃÇÕ´Ï´Ù. ±×·± ´ÙÀ½ **Users** Æú´õ¸¦ ¿±´Ï´Ù. ÀÌ Æú´õ¿¡´Â ÀÌ ·¦ÀÇ ³ª¸ÓÁö ºÎºÐ¿¡¼­ »ç¿ëÇÒ ÆÄÀÏÀÌ Æ÷ÇÔµÈ **DP100** Æú´õ°¡ ÀÖ¾î¾ß ÇÕ´Ï´Ù.
+7. **Users/DP100** Æú´õ¿¡¼­ **01B - Intro to the Azure ML SDK.ipynb** NotebookÀ» ¿±´Ï´Ù. ±×·± ´ÙÀ½ °¢ ÄÚµå ¼¿À» Â÷·Ê·Î ½ÇÇàÇÏ¿© NotebookÀÇ ¸Þ¸ð¸¦ ÀÐ½À´Ï´Ù.
+8. Notebook¿¡¼­ ÄÚµå ½ÇÇàÀÌ ¿Ï·áµÇ¸é **ÆÄÀÏ** ¸Þ´º¿¡¼­ **´Ý±â ¹× ÁßÁö**¸¦ Å¬¸¯ÇÏ¿© NotebookÀ» ´Ý°í Python Ä¿³ÎÀ» Á¾·áÇÕ´Ï´Ù. ±×·± ÈÄ¿¡ ¸ðµç Jupyter ºê¶ó¿ìÀú ÅÇÀ» ´Ý½À´Ï´Ù.
+9. **ÄÄÇ»ÆÃ** ÆäÀÌÁöÀÇ Azure Machine Learning ½ºÆ©µð¿À¿¡¼­ ±× ³¯ÀÇ Azure Machine Learning ÀÛ¾÷ÀÌ ³¡³ª¸é ÄÄÇ»ÆÃ ÀÎ½ºÅÏ½º¸¦ ¼±ÅÃÇÏ°í **ÁßÁö**¸¦ ´­·¯ Á¾·áÇÏ½Ê½Ã¿À. ¶Ç´Â ´ÙÀ½ ·¦À» À§ÇØ ½ÇÇà »óÅÂ·Î µÓ´Ï´Ù.
 
-## ìž‘ì—… 2: Visual Studio Online í™˜ê²½ ì„¤ì •
+## ÀÛ¾÷ 2: Visual Studio ÄÚµå °ø°£ ¼³Á¤
 
-Azure Machine Learningì˜ ì»´í“¨íŒ… ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì‚¬ìš©í•˜ë©´ ìžì²´ Python ì„¤ì¹˜ë¥¼ ê´€ë¦¬í•˜ì§€ ì•Šê³ ë„ Azure ML ì‚¬ìš©ì„ ìœ„í•œ Python í™˜ê²½ì„ ì‰½ê²Œ ê´€ë¦¬í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. í•˜ì§€ë§Œ ìžì²´ ê·¸ëž˜í”½ Python ê°œë°œ í™˜ê²½ì„ ì‚¬ìš©í•˜ë ¤ëŠ” ê²½ìš°ë„ ìžˆìŠµë‹ˆë‹¤. ì´ ê³¼ì •ì—ì„œëŠ” í™˜ê²½ì„ ê°„íŽ¸í•˜ê²Œ ì„¤ì¹˜í•˜ê¸° ìœ„í•´ Visual Studio Onlineì„ ì‚¬ìš©í•©ë‹ˆë‹¤. ê·¸ëŸ¬ë‚˜ Azure Machine Learning SDK ì‚¬ìš© ì‹œì˜ ì›ì¹™ì€ ì–´ë–¤ Python í™˜ê²½ì—ì„œë‚˜ ë™ì¼í•©ë‹ˆë‹¤.
+Azure Machine LearningÀÇ ÄÄÇ»ÆÃ ÀÎ½ºÅÏ½º¸¦ »ç¿ëÇÏ¸é ÀÚÃ¼ Python ¼³Ä¡¸¦ °ü¸®ÇÏÁö ¾Ê°íµµ Azure ML »ç¿ëÀ» À§ÇÑ Python È¯°æÀ» ½±°Ô °ü¸®ÇÒ ¼ö ÀÖ½À´Ï´Ù. ÇÏÁö¸¸ ÀÚÃ¼ ±×·¡ÇÈ Python °³¹ß È¯°æÀ» »ç¿ëÇÏ·Á´Â °æ¿ìµµ ÀÖ½À´Ï´Ù. ÀÌ °úÁ¤¿¡¼­´Â È¯°æÀ» °£ÆíÇÏ°Ô ¼³Ä¡ÇÏ±â À§ÇØ Visual Studio ÄÚµå °ø°£À» »ç¿ëÇÕ´Ï´Ù. ±×·¯³ª Azure Machine Learning SDK »ç¿ë ½ÃÀÇ ¿øÄ¢Àº ¾î¶² Python È¯°æ¿¡¼­³ª µ¿ÀÏÇÕ´Ï´Ù.
 
-> **ì°¸ê³ **: ì´ ë¬¸ì„œë¥¼ ìž‘ì„±í•˜ëŠ” ì‹œì ì—ì„œ Visual Studio Onlineì€ *ë¯¸ë¦¬ ë³´ê¸°* ìƒíƒœìž…ë‹ˆë‹¤. ë”°ë¼ì„œ ì˜ˆê¸°ì¹˜ ì•Šì€ ì˜¤ë¥˜ ë©”ì‹œì§€ê°€ ë‚˜íƒ€ë‚  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+> **Âü°í**: ÀÌ ¹®¼­¸¦ ÀÛ¼ºÇÏ´Â ½ÃÁ¡¿¡¼­ Visual Studio ÄÚµå °ø°£Àº *¹Ì¸® º¸±â* »óÅÂÀÔ´Ï´Ù. µû¶ó¼­ ¿¹±âÄ¡ ¾ÊÀº ¿À·ù ¸Þ½ÃÁö°¡ ³ªÅ¸³¯ ¼ö ÀÖ½À´Ï´Ù.
 
-1. ìƒˆ ë¸Œë¼ìš°ì € íƒ­ì—ì„œ [https://online.visualstudio.com](https://online.visualstudio.com)ìœ¼ë¡œ ì´ë™í•˜ì—¬ **ì‹œìž‘í•˜ê¸°**ë¥¼ í´ë¦­í•©ë‹ˆë‹¤.
-2. Azureì— ë¡œê·¸ì¸í•˜ëŠ” ë° ì‚¬ìš©í•œ ê²ƒê³¼ ê°™ì€ Microsoft ìžê²© ì¦ëª…ì„ ì‚¬ìš©í•˜ì—¬ Visual Studio Onlineì— ë¡œê·¸ì¸í•©ë‹ˆë‹¤.
-3. ë‹¤ìŒ ì„¤ì •ì„ ì‚¬ìš©í•˜ì—¬ ìƒˆ í™˜ê²½ì„ ë§Œë“­ë‹ˆë‹¤. í•´ë‹¹ ë©”ì‹œì§€ê°€ í‘œì‹œë˜ë©´ ë¨¼ì € Azure êµ¬ë…ì—ì„œ ì²­êµ¬ ê³„íšì„ ë§Œë“­ë‹ˆë‹¤.
-    - **í™˜ê²½ ì´ë¦„**: *ì›í•˜ëŠ” ê³ ìœ í•œ ì´ë¦„*
-    - **Git ë¦¬í¬ì§€í† ë¦¬**: MicrosoftLearning/DP100
-    - **ì¸ìŠ¤í„´ìŠ¤ ìœ í˜•**: í‘œì¤€(Linux)
-    - **ìœ íœ´ í™˜ê²½ì„ ì¼ì‹œ ì¤‘ë‹¨í•  ì‹œê°„**: 30ë¶„
-4. í™˜ê²½ì´ ë§Œë“¤ì–´ì§ˆ ë•Œê¹Œì§€ ê¸°ë‹¤ë ¸ë‹¤ê°€ í™˜ê²½ ì´ë¦„ì„ í´ë¦­í•˜ì—¬ í™˜ê²½ì— ì—°ê²°í•©ë‹ˆë‹¤.
+1. »õ ºê¶ó¿ìÀú ÅÇ¿¡¼­ [https://online.visualstudio.com](https://online.visualstudio.com)À¸·Î ÀÌµ¿ÇÕ´Ï´Ù. ¸Þ½ÃÁö°¡ Ç¥½ÃµÇ¸é Azure ·Î±×ÀÎ¿¡ »ç¿ëÇÑ °Í°ú °°Àº Microsoft ÀÚ°Ý Áõ¸íÀ» »ç¿ëÇÏ¿© Visual Studio ÄÚµå °ø°£¿¡ ·Î±×ÀÎÇÕ´Ï´Ù.
+2. ´ÙÀ½ ¼³Á¤À¸·Î ÄÚµå °ø°£À» ¸¸µì´Ï´Ù(Visual Studio ÄÚµå °ø°£ °èÈ¹ÀÌ ¾ÆÁ÷ ¾ø´Â °æ¿ì ¸Þ½ÃÁö°¡ Ç¥½ÃµÇ¸é ÄÚµå¸¦ ¸¸µé ¼ö ÀÖ½À´Ï´Ù - ÀÌ´Â ÄÚµå °ø°£ÀÇ ¸®¼Ò½º »ç¿ë·ü ÃßÀû¿¡ »ç¿ëµË´Ï´Ù).
+    - **ÄÚµå °ø°£ ÀÌ¸§**: *¿øÇÏ´Â °íÀ¯ÇÑ ÀÌ¸§*
+    - **Git ¸®Æ÷ÁöÅä¸®**: MicrosoftLearning/DP100
+    - **ÀÎ½ºÅÏ½º À¯Çü**: Ç¥ÁØ(Linux)
+    - **À¯ÈÞ ÄÚµå °ø°£À» ÀÏ½Ã Áß´ÜÇÒ ½Ã°£**: 60ºÐ
+3.  ÄÚµå °ø°£ÀÌ ¸¸µé¾îÁú ¶§±îÁö ±â´Ù¸³´Ï´Ù. Visual Studio CodeÀÇ ºê¶ó¿ìÀú ±â¹Ý ÀÎ½ºÅÏ½º°¡ ¿­¸³´Ï´Ù.
+4. È¯°æÀ» ¼³Á¤ÇÏ´Â µ¿¾È 1ºÐ Á¤µµ ±â´Ù¸³´Ï´Ù. ¾Æ¹« ÀÏµµ ÀÏ¾î³ªÁö ¾Ê´Â °ÍÃ³·³ º¸ÀÏ ¼ö ÀÖÁö¸¸ ¹é±×¶ó¿îµå¿¡¼­´Â ·¦¿¡¼­ »ç¿ëÇÒ ¸î °¡Áö È®Àå ÇÁ·Î±×·¥À» ¼³Ä¡ÇÏ°í ÀÖ½À´Ï´Ù. ´ÙÀ½°ú °°Àº »çÇ×À» È®ÀÎÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    - ÄÚµå °ø°£ÀÌ ÁØºñµÇ¸é ½ºÅ©¸³Æ® Ã¢ÀÌ ¿­·Á »óÅÂ¸¦ Ç¥½ÃÇÕ´Ï´Ù.
+    - Visual Studio Code ÀÎÅÍÆäÀÌ½º°¡ ·ÎµåµË´Ï´Ù.
+    - ÀÌ ¸®Æ÷ÁöÅä¸®ÀÇ ÆÄÀÏÀº ¿ÞÂÊÀÇ Ã¢¿¡ ³ªÅ¸³³´Ï´Ù.
+5. ¼³Ä¡°¡ ¼º°øÀûÀ¸·Î ¿Ï·áµÇ¸é **¸¸µé±â ·Î±×** Ã¢À» ´ÝÀ» ¼ö ÀÖ½À´Ï´Ù. 
 
-    Visual Studio Onlineì€ ì›¹ ë¸Œë¼ìš°ì €ì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” Visual Studio ì½”ë“œì˜ í˜¸ìŠ¤íŠ¸ëœ ì¸ìŠ¤í„´ìŠ¤ìž…ë‹ˆë‹¤. ì¼ë°˜ ì½”ë“œ íŽ¸ì§‘ í™˜ê²½ì¸ Visual Studio Codeì—ì„œëŠ” *í™•ìž¥*ì„ ì„¤ì¹˜í•˜ì—¬ ë‹¤ì–‘í•œ í”„ë¡œê·¸ëž˜ë° ì–¸ì–´ë¥¼ ì§€ì›í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. Pythonì„ ì‚¬ìš©í•˜ë ¤ëŠ” ê²½ìš°ì—ëŠ” Microsoft Python í™•ìž¥ì´ í•„ìš”í•©ë‹ˆë‹¤. ì´ í™•ìž¥ì€ **DP100** ë¦¬í¬ì§€í† ë¦¬ì—ì„œ ì´ í™˜ê²½ì„ ë§Œë“¤ ë•Œ ì¼ë°˜ì ìœ¼ë¡œ ì‚¬ìš©ë˜ëŠ” ëª‡ ê°€ì§€ Python íŒ¨í‚¤ì§€ì™€ í•¨ê»˜ ì„¤ì¹˜ëœ ìƒíƒœìž…ë‹ˆë‹¤.
+    Visual Studio ÄÚµå °ø°£Àº À¥ ºê¶ó¿ìÀú¿¡¼­ »ç¿ëÇÒ ¼ö ÀÖ´Â Visual Studio CodeÀÇ È£½ºÆ®µÈ ÀÎ½ºÅÏ½ºÀÔ´Ï´Ù. ÀÏ¹Ý ÄÚµå ÆíÁý È¯°æÀÎ Visual Studio Code¿¡¼­´Â *È®Àå*À» ¼³Ä¡ÇÏ¿© ´Ù¾çÇÑ ÇÁ·Î±×·¡¹Ö ¾ð¾î¸¦ Áö¿øÇÒ ¼ö ÀÖ½À´Ï´Ù. PythonÀ» »ç¿ëÇÏ·Á´Â °æ¿ì¿¡´Â Microsoft Python È®ÀåÀÌ ÇÊ¿äÇÕ´Ï´Ù. ÀÌ È®ÀåÀº **DP100** ¸®Æ÷ÁöÅä¸®¿¡¼­ ÀÌ È¯°æÀ» ¸¸µé ¶§ ÀÏ¹ÝÀûÀ¸·Î »ç¿ëµÇ´Â ¸î °¡Áö Python ÆÐÅ°Áö¿Í ÇÔ²² ¼³Ä¡µÈ »óÅÂÀÔ´Ï´Ù.
 
-    í˜¸ìŠ¤íŠ¸ëœ Visual Studio Code í™˜ê²½ì—ëŠ” Python ì„¤ì¹˜ 3ê°œ(ë²„ì „ 2.7.13, 3.5.3, 3.8.0)ê°€ í¬í•¨ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. ì—¬ê¸°ì„œëŠ” Python **3.5.3** ê°€ìƒ í™˜ê²½ì„ ì‚¬ìš©í•©ë‹ˆë‹¤. ìžì²´ ì„¤ì¹˜ë¥¼ ì‚¬ìš©í•˜ëŠ” ê²½ìš°ì—ëŠ” Python ì„¤ì¹˜, ê°€ìƒ í™˜ê²½ ë§Œë“¤ê¸°, í•„ìš”í•œ íŒ¨í‚¤ì§€ ì„¤ì¹˜ë¥¼ ì§ì ‘ ìˆ˜í–‰í•´ì•¼ í•©ë‹ˆë‹¤. ì´ ëž©ì—ì„œëŠ” ì¼ë°˜ Python êµ¬ì„± ìž‘ì—…ì´ ëŒ€ë¶€ë¶„ ì™„ë£Œëœ ìƒíƒœìž…ë‹ˆë‹¤. í•˜ì§€ë§Œ Azure Machine Learning SDKëŠ” ì„¤ì¹˜í•´ì•¼ í•©ë‹ˆë‹¤.
+    ÄÚµå °ø°£¿¡´Â Visual Studio Code ÀÎÅÍÆäÀÌ½º ³» Jupyter ³ëÆ®ºÏÀÇ °øÅë ÆÐÅ°Áö ¹× Áö¿øÀ» Æ÷ÇÔÇÏ¿© Python(¹öÀü 3.x)ÀÇ ¼³Ä¡°¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù. Azure Machine Learning°ú ÇÔ²² ÀÛµ¿ÇÏ´Â ÄÚµå¸¦ ½ÇÇàÇÏ·Á¸é Azure ML SDK¸¦ ¼³Ä¡ÇÏ±â¸¸ ÇÏ¸é µË´Ï´Ù.
 
-5. Visual Studio Online í™˜ê²½ì—ì„œ DP100 ë¦¬í¬ì§€í† ë¦¬ì˜ ì½˜í…ì¸ ê°€ ë¡œë“œë  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦° ë‹¤ìŒ ì• í”Œë¦¬ì¼€ì´ì…˜ ë©”ë‰´(**&#9776;**)ì˜ **ë³´ê¸°** ë©”ë‰´ì—ì„œ **ëª…ë ¹ íŒ”ë ˆíŠ¸**ë¥¼ í´ë¦­í•˜ê±°ë‚˜ Ctrl+Shift+Pë¥¼ ëˆ„ë¦…ë‹ˆë‹¤. ê·¸ëŸ° ë‹¤ìŒ íŒ”ë ˆíŠ¸ì—ì„œ **Python: í„°ë¯¸ë„ ë§Œë“¤ê¸°** ëª…ë ¹ì„ ìž…ë ¥í•©ë‹ˆë‹¤. ê·¸ëŸ¬ë©´ Visual Studio Online ì¸í„°íŽ˜ì´ìŠ¤ í•˜ë‹¨ì— Python í„°ë¯¸ë„ ì°½ì´ ì—´ë¦½ë‹ˆë‹¤.
-
-    > **íŒ**: *Python: í„°ë¯¸ë„ ë§Œë“¤ê¸°* ëª…ë ¹ì´ ëª©ë¡ì— í‘œì‹œë˜ì§€ ì•Šìœ¼ë©´ ë¸Œë¼ìš°ì €ë¥¼ ìƒˆë¡œ ê³ ì³ í™˜ê²½ì„ ë‹¤ì‹œ ë¡œë“œí•œ í›„ì— ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”.
-
-6. í„°ë¯¸ë„ ì°½ì—ì„œ ë‹¤ìŒ ëª…ë ¹ì„ ìž…ë ¥í•˜ì—¬ Python 3.5.3 ê°€ìƒ í™˜ê²½ì´ ì •ì˜ë˜ì–´ ìžˆëŠ” ë””ë ‰í„°ë¦¬ë¡œ ë³€ê²½í•©ë‹ˆë‹¤.
-
-    ````bash
-    cd /usr/bin
-    ````
-
-7. ì´ì œ ë‹¤ìŒ ëª…ë ¹ì„ ì‚¬ìš©í•˜ì—¬ *notebooks* ì¶”ê°€ íŒ¨í‚¤ì§€(ì„ íƒ ì‚¬í•­)ì™€ í•¨ê»˜ Azure Machine Learning SDKë¥¼ ì„¤ì¹˜í•©ë‹ˆë‹¤.
+6. Visual Studio ÄÚµå °ø°£ÀÇ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ¸Þ´º(**&#9776;**)ÀÇ **º¸±â** ¸Þ´º¿¡¼­ **¸í·É ÆÈ·¹Æ®**¸¦ Å¬¸¯ÇÕ´Ï´Ù(¶Ç´Â CTRL+SHIFT+P¸¦ ´©¸¨´Ï´Ù). ±×·± ´ÙÀ½ ÆÈ·¹Æ®¿¡¼­ **Python**:** ÅÍ¹Ì³Î ¸¸µé±â** ¸í·ÉÀ» ÀÔ·ÂÇÕ´Ï´Ù. ±×·¯¸é ÀÎÅÍÆäÀÌ½º ÇÏ´Ü¿¡ Python ÅÍ¹Ì³Î Ã¢ÀÌ ¿­¸³´Ï´Ù.
+7. ÅÍ¹Ì³Î Ã¢¿¡¼­ ÀÌÁ¦ ´ÙÀ½ ¸í·ÉÀ» ÀÔ·ÂÇÏ¿© *notebooks* Ãß°¡ ÆÐÅ°Áö(¼±ÅÃ »çÇ×)¿Í ÇÔ²² Azure Machine Learning SDK¸¦ ¼³Ä¡ÇÕ´Ï´Ù.
 
     ```bash
-    sudo pip install azureml-sdk[notebooks]
+    pip install azureml-sdk[notebooks]
     ```
 
-8. í„°ë¯¸ë„ ì°½ì„ ë‹«ìŠµë‹ˆë‹¤.
+8. ÅÍ¹Ì³Î Ã¢À» ´Ý½À´Ï´Ù.
 
-## ìž‘ì—… 3: Visual Studio Onlineì—ì„œ Azure ML SDK ì‚¬ìš©
+## ÀÛ¾÷ 3: Visual Studio Online¿¡¼­ Azure ML SDK »ç¿ë
 
-Python ê°œë°œ í™˜ê²½ì„ ì„¤ì¹˜í–ˆìœ¼ë¯€ë¡œ ì´ì œ ì´ í™˜ê²½ì—ì„œ Azure Machine Learning SDKë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ê·¸ëŸ¬ë ¤ë©´ ë¨¼ì € Azure Machine Learning ìž‘ì—… ì˜ì—­ì— ì—°ê²°í•˜ëŠ” ë° í•„ìš”í•œ êµ¬ì„± ì •ë³´ë¥¼ ê°€ì ¸ì™€ì•¼ í•©ë‹ˆë‹¤.
+Python °³¹ß È¯°æÀ» ¼³Ä¡ÇßÀ¸¹Ç·Î ÀÌÁ¦ ÀÌ È¯°æ¿¡¼­ Azure Machine Learning SDK¸¦ »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù. ±×·¯·Á¸é ¸ÕÀú Azure Machine Learning ÀÛ¾÷ ¿µ¿ª¿¡ ¿¬°áÇÏ´Â µ¥ ÇÊ¿äÇÑ ±¸¼º Á¤º¸¸¦ °¡Á®¿Í¾ß ÇÕ´Ï´Ù.
 
-1. ìƒˆ ë¸Œë¼ìš°ì € íƒ­ì—ì„œ Azure Portal([https://portal.azure.com](https://portal.azure.com))ì„ ì—´ê³  í•„ìš”í•œ ê²½ìš° ë¡œê·¸ì¸í•©ë‹ˆë‹¤.
-2. ì´ì „ ëž©ì—ì„œ ë§Œë“  Azure Machine Learning ìž‘ì—… ì˜ì—­ ë¦¬ì†ŒìŠ¤ë¥¼ ì—´ê³  í•´ë‹¹ ë¦¬ì†ŒìŠ¤ì˜ **ê°œìš”** íŽ˜ì´ì§€ì—ì„œ **config.json ë‹¤ìš´ë¡œë“œ**ë¥¼ í´ë¦­í•˜ì—¬ ë¡œì»¬ ì»´í“¨í„°ì— íŒŒì¼ì„ ë‹¤ìš´ë¡œë“œí•©ë‹ˆë‹¤.
-3. í…ìŠ¤íŠ¸ íŽ¸ì§‘ê¸°ì—ì„œ ë‹¤ìš´ë¡œë“œí•œ **config.json** íŒŒì¼ì„ ì—´ì–´ í•´ë‹¹ ë‚´ìš©ì„ í´ë¦½ë³´ë“œì— ë³µì‚¬í•©ë‹ˆë‹¤. ì´ íŒŒì¼ì—ëŠ” ìž‘ì—… ì˜ì—­ì— ì—°ê²°í•˜ëŠ” ë° í•„ìš”í•œ êµ¬ì„± ì •ë³´ê°€ í¬í•¨ë˜ì–´ ìžˆìŠµë‹ˆë‹¤.
-4. Visual Studio Onlineì—ì„œ VS Online ìž‘ì—… ì˜ì—­ì˜ ë£¨íŠ¸ í´ë”ì— **config.json** íŒŒì¼ì„ ìƒˆë¡œ ë§Œë“­ë‹ˆë‹¤.
-5. ë³µì‚¬ëœ êµ¬ì„± ì •ë³´ë¥¼ Visual Studio Online ìž‘ì—… ì˜ì—­ì˜ ìƒˆ config.json íŒŒì¼ì— ë¶™ì—¬ë„£ê³  íŒŒì¼ì„ ì €ìž¥í•©ë‹ˆë‹¤.
-6. Visual Studio Onlineì—ì„œ **01B - Intro to the Azure ML SDK.ipynb** Notebookì„ ì—½ë‹ˆë‹¤. ê·¸ëŸ¬ë©´ Visual Studio Online ë‚´ì˜ Jupyter Notebook ì¸í„°íŽ˜ì´ìŠ¤ì— Notebookì´ ë¡œë“œë©ë‹ˆë‹¤. Jupyter Notebook ì¸í„°íŽ˜ì´ìŠ¤ëŠ” ì²˜ìŒ ì‚¬ìš©í•  ë•Œ ë¡œë“œí•˜ëŠ” ë° ì‹œê°„ì´ ë‹¤ì†Œ ê±¸ë¦´ ìˆ˜ ìžˆìœ¼ë©° ì°½ ë‘ ê°œê°€ ìž ì‹œ í‘œì‹œë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ë‘ ì°½ ì¤‘ í•˜ë‚˜ì—ëŠ” Notebookì˜ JSON í‘œí˜„ì´ í¬í•¨ë˜ì–´ ìžˆê³ , ë‹¤ë¥¸ í•˜ë‚˜ì—ëŠ” Notebookì˜ ì‹œê°ì  ì¸í„°íŽ˜ì´ìŠ¤ê°€ í¬í•¨ë˜ì–´ ìžˆìŠµë‹ˆë‹¤.
-7. Notebookì´ ë¡œë“œë˜ë©´ Visual Studio Online ì¸í„°íŽ˜ì´ìŠ¤ì˜ ì™¼ìª½ í•˜ë‹¨ì—ì„œ í˜„ìž¬ Python ê°€ìƒ í™˜ê²½ì„ í´ë¦­í•©ë‹ˆë‹¤. ë¦¬í¬ì§€í† ë¦¬ì˜ êµ¬ì„± ì„¤ì •ì— ë”°ë¼ ì´ í™˜ê²½ì˜ ë²„ì „ì€ **Python 3.5.3**ìœ¼ë¡œ ë³€ê²½ë˜ì—ˆì„ ê²ƒìž…ë‹ˆë‹¤. Notebookì€ ë‹¤ë¥¸ ë²„ì „(Notebookì˜ ë©”íƒ€ë°ì´í„°ì— í‘œì‹œë˜ì–´ ìžˆìŒ)ì—ì„œ ìž‘ì„±ë˜ì—ˆì§€ë§Œ, ì—¬ê¸°ì„œëŠ” ì´ ê°€ìƒ í™˜ê²½ì„ ë‹¤ì‹œ ì„ íƒí•©ë‹ˆë‹¤.
-8. Azure Machine Learning Notebook VM Jupyter í™˜ê²½ì—ì„œì™€ ë§ˆì°¬ê°€ì§€ë¡œ ê° ì½”ë“œ ì…€ì„ ì°¨ë¡€ë¡œ ì‹¤í–‰í•˜ì—¬ Notebookì˜ ë©”ëª¨ë¥¼ ì½ìŠµë‹ˆë‹¤.
+1. »õ ºê¶ó¿ìÀú ÅÇ¿¡¼­ Azure Portal [https://portal.azure.com](https://portal.azure.com)À» ¿­°í ÇÊ¿äÇÑ °æ¿ì ·Î±×ÀÎÇÕ´Ï´Ù.
+2. ÀÌÀü ·¦¿¡¼­ ¸¸µç Azure Machine Learning ÀÛ¾÷ ¿µ¿ª ¸®¼Ò½º¸¦ ¿­°í ÇØ´ç ¸®¼Ò½ºÀÇ **°³¿ä** ÆäÀÌÁö¿¡¼­ **config.json ´Ù¿î·Îµå**¸¦ Å¬¸¯ÇÏ¿© ·ÎÄÃ ÄÄÇ»ÅÍ¿¡ ÆÄÀÏÀ» ´Ù¿î·ÎµåÇÕ´Ï´Ù.
+3. ·ÎÄÃ ÄÄÇ»ÅÍ¿¡¼­ ´Ù¿î·ÎµåÇÑ **config.json**ÆÄÀÏÀ» ºê¶ó¿ìÀúÀÇ ÄÚµå °ø°£À¸·Î ²ø¾î¼­ ³ëÆ®ºÏ ÆÄÀÏ¿¡ ³õ½À´Ï´Ù. ÀÌ·¸°Ô ÇÏ¸é ±¸¼º ÆÄÀÏÀÌ ¾÷·ÎµåµÇ°í ÄÚµå °ø°£ ÆíÁý±â¿¡¼­ ¿­¸³´Ï´Ù.
+4. config.json ÆÄÀÏÀÇ ³»¿ëÀ» °ËÅäÇÏ°í ´Ý½À´Ï´Ù.
+5. ÄÚµå °ø°£¿¡¼­ **01B - Intro to the Azure ML SDK.ipynb** NotebookÀ» ¿±´Ï´Ù. ±×·¯¸é Jupyter Notebook ÀÎÅÍÆäÀÌ½º¿¡ ·ÎµåµË´Ï´Ù. Jupyter Notebook ÀÎÅÍÆäÀÌ½º´Â Ã³À½ »ç¿ëÇÒ ¶§ ·ÎµåÇÏ´Â µ¥ ½Ã°£ÀÌ ´Ù¼Ò °É¸± ¼ö ÀÖÀ¸¸ç Ã¢ µÎ °³°¡ Àá½Ã Ç¥½ÃµÉ ¼ö ÀÖ½À´Ï´Ù. µÎ Ã¢ Áß ÇÏ³ª¿¡´Â NotebookÀÇ JSON Ç¥ÇöÀÌ Æ÷ÇÔµÇ¾î ÀÖ°í, ´Ù¸¥ ÇÏ³ª¿¡´Â NotebookÀÇ ½Ã°¢Àû ÀÎÅÍÆäÀÌ½º°¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù.
+6. NotebookÀÌ ·ÎµåµÇ¸é Azure Machine Learning Notebook VM Jupyter È¯°æ¿¡¼­¿Í ¸¶Âù°¡Áö·Î °¢ ÄÚµå ¼¿À» Â÷·Ê·Î ½ÇÇàÇÏ¿© Æ÷ÇÔµÈ ¸Þ¸ð¸¦ ÀÐ½À´Ï´Ù.
 
-## ìž‘ì—… 4: Visual Studio Code Azure Machine Learning í™•ìž¥ ì‚¬ìš©
+## ÀÛ¾÷ 4: Visual Studio Code Azure Machine Learning È®Àå »ç¿ë
 
-Visual Studio Online ë˜ëŠ” ë¡œì»¬ì— ì„¤ì¹˜í•œ Visual Studio Codeì—ì„œ Azure Machine Learningì„ ì‚¬ìš©í•˜ë ¤ëŠ” ê²½ìš° Azure Machine Learning í™•ìž¥ì„ ì„¤ì¹˜í•˜ë©´ ì½”ë“œ ê°œë°œ í™˜ê²½ê³¼ Azure Machine Learning Studio ì›¹ ì¸í„°íŽ˜ì´ìŠ¤ ê°„ì„ ì „í™˜í•˜ì§€ ì•Šê³ ë„ ìž‘ì—… ì˜ì—­ì˜ ë¦¬ì†ŒìŠ¤ë¥¼ ë” ì‰½ê²Œ ì‚¬ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+Visual Studio ÄÚµå °ø°£ ¶Ç´Â ·ÎÄÃ¿¡ ¼³Ä¡ÇÑ Visual Studio Code¿¡¼­ Azure Machine LearningÀ» »ç¿ëÇÏ·Á´Â °æ¿ì Azure Machine Learning È®ÀåÀ» ¼³Ä¡ÇÏ¸é ÄÚµå °³¹ß È¯°æ°ú Azure Machine Learning Studio À¥ ÀÎÅÍÆäÀÌ½º °£À» ÀüÈ¯ÇÏÁö ¾Ê°íµµ ÀÛ¾÷ ¿µ¿ªÀÇ ¸®¼Ò½º¸¦ ´õ ½±°Ô »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
 
-1. Visual Studio Onlineì—ì„œ **í™•ìž¥** íƒ­(&#8862;)ì„ í´ë¦­í•˜ê³  "Azure Machine Learning"ì„ ê²€ìƒ‰í•©ë‹ˆë‹¤. ê·¸ëŸ° ë‹¤ìŒ Microsoftì—ì„œ ì œê³µí•˜ëŠ” **Azure Machine Learning** í™•ìž¥ì„ ì„¤ì¹˜í•©ë‹ˆë‹¤. í™•ìž¥ì„ ì„¤ì¹˜í•œ í›„ **í•„ìˆ˜ í•­ëª© ë‹¤ì‹œ ë¡œë“œ** ë‹¨ì¶”ë¥¼ í´ë¦­í•˜ì—¬ í™•ìž¥ì´ ì„¤ì¹˜ëœ í™˜ê²½ì„ ë‹¤ì‹œ ë¡œë“œí•©ë‹ˆë‹¤.
-2. Visual Studio Onlineì—ì„œ **Azure** íƒ­(***&Delta;***)ì„ í´ë¦­í•˜ê³  **Azure Machine Learning** ì„¹ì…˜ì—ì„œ êµ¬ë… ë° Azure Machine Learning ìž‘ì—… ì˜ì—­ì„ í™•ìž¥í•©ë‹ˆë‹¤.
-3. **ì»´í“¨íŒ…**ì„ í™•ìž¥í•œ ë‹¤ìŒ ìž‘ì—… ì˜ì—­ì—ì„œ ë§Œë“  **aml-cluster** ì»´í“¨íŒ… ë¦¬ì†ŒìŠ¤ê°€ **ë¡œì»¬** ì»´í“¨íŒ… ë¦¬ì†ŒìŠ¤ì™€ í•¨ê»˜ ëª©ë¡ì— í‘œì‹œë˜ëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤. ì—¬ê¸°ì„œ ë¡œì»¬ ì»´í“¨íŒ… ë¦¬ì†ŒìŠ¤ëŠ” Visual Studio Online í˜¸ìŠ¤íŠ¸ëœ í™˜ê²½ì„ ë‚˜íƒ€ëƒ…ë‹ˆë‹¤. ìž‘ì—… ì˜ì—­ì— ì •ì˜ëœ ì»´í“¨íŒ… ë¦¬ì†ŒìŠ¤ì™€ ë¡œì»¬ ì»´í“¨íŒ… ë¦¬ì†ŒìŠ¤ì—ì„œ Azure Machine Learning ì½”ë“œ ì‹¤í—˜ì„ ì‹¤í–‰í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
-4. Visual Studio Online ë¸Œë¼ìš°ì € íƒ­ì„ ë‹«ìŠµë‹ˆë‹¤.
+1. Visual Studio ÄÚµå °ø°£ ÀÎÅÍÆäÀÌ½º¿¡¼­ **È®Àå** ÅÇ(&#8862;)À» Å¬¸¯ÇÏ°í "Azure Machine Learning"À» °Ë»öÇÕ´Ï´Ù. ±×·± ´ÙÀ½ Microsoft¿¡¼­ Á¦°øÇÏ´Â **Azure Machine Learning** È®ÀåÀ» ¼³Ä¡ÇÕ´Ï´Ù. È®ÀåÀ» ¼³Ä¡ÇÑ ÈÄ **ÇÊ¼ö Ç×¸ñ ´Ù½Ã ·Îµå** ´ÜÃß¸¦ Å¬¸¯ÇÏ¿© È®ÀåÀÌ ¼³Ä¡µÈ È¯°æÀ» ´Ù½Ã ·ÎµåÇÕ´Ï´Ù.
+2. Visual Studio ÄÚµå °ø°£ ÀÎÅÍÆäÀÌ½º¿¡¼­ **Azure** ÅÇ(***&Delta;***)À» Å¬¸¯ÇÏ°í **Azure Machine Learning** ¼½¼Ç¿¡¼­ ±¸µ¶ ¹× Azure Machine Learning ÀÛ¾÷ ¿µ¿ªÀ» È®ÀåÇÕ´Ï´Ù.
+3. **ÄÄÇ»ÆÃ Å¬·¯½ºÅÍ**¸¦ È®ÀåÇÑ ´ÙÀ½ ÀÛ¾÷ ¿µ¿ª¿¡¼­ ¸¸µç **aml-cluster** ÄÄÇ»ÆÃ ¸®¼Ò½º°¡ **·ÎÄÃ** ÄÄÇ»ÆÃ ¸®¼Ò½º¿Í ÇÔ²² ¸ñ·Ï¿¡ Ç¥½ÃµÇ´ÂÁö È®ÀÎÇÕ´Ï´Ù. ¿©±â¼­ ·ÎÄÃ ÄÄÇ»ÆÃ ¸®¼Ò½º´Â È£½ºÆ®µÈ ÄÚµå °ø°£ È¯°æÀ» ³ªÅ¸³À´Ï´Ù. ÀÛ¾÷ ¿µ¿ª¿¡ Á¤ÀÇµÈ ÄÄÇ»ÆÃ ¸®¼Ò½º¿Í ·ÎÄÃ ÄÄÇ»ÆÃ¿¡¼­ Azure Machine Learning ÄÚµå ½ÇÇèÀ» ½ÇÇàÇÒ ¼ö ÀÖ½À´Ï´Ù.
+4. Visual Studio ÄÚµå °ø°£ ºê¶ó¿ìÀú ÅÇÀ» ´Ý½À´Ï´Ù.
