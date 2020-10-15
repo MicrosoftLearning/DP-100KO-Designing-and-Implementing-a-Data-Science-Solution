@@ -1,4 +1,4 @@
-﻿# 랩 1B: Azure Machine Learning 도구 사용
+# 랩 1B: Azure Machine Learning 도구 사용
 
 이 랩에서는 Azure Machine Learning 작업 영역을 사용하는 데 필요한 여러 가지 다양한 도구를 살펴봅니다.
 
